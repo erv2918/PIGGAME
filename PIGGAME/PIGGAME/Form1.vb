@@ -12,11 +12,13 @@
             txtJugador.Text = 0
             txtPuntajeParcial.Text = 0
             txtDado.Text = ""
+            MessageBox.Show("BABOSO , TURNO DE LA MAQUINA", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            MAQUINA()
         End If
     End Sub
 
     Function Random()
-        Dim valor As Integer = Int((20 * Rnd()) + 1)
+        Dim valor As Integer = Int((6 * Rnd()) + 1)
         Return valor
     End Function
 
@@ -24,5 +26,9 @@
         Jugador += Parcial
         txtJugador.Text = Jugador
         MessageBox.Show("TURNO DE LA MAQUINA", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+        MAQUINA()
+    End Sub
+    Sub MAQUINA()
+
     End Sub
 End Class
