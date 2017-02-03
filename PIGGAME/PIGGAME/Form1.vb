@@ -1,8 +1,9 @@
 ﻿Public Class Form1
     Dim Parcial As Integer = 0
     Dim Jugador As Integer = 0
+    Dim Maquina As Integer = 0
+    Dim dado As Integer = Random()
     Private Sub btnTirar_Click(sender As Object, e As EventArgs) Handles btnTirar.Click
-        Dim dado As Integer = Random()
         txtDado.Text = dado
         Parcial += dado
         txtPuntajeParcial.Text = Parcial
@@ -13,7 +14,7 @@
             txtPuntajeParcial.Text = 0
             txtDado.Text = ""
             MessageBox.Show("BABOSO , TURNO DE LA MAQUINA", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-            MAQUINA()
+            CPU()
         End If
     End Sub
 
@@ -26,9 +27,13 @@
         Jugador += Parcial
         txtJugador.Text = Jugador
         MessageBox.Show("TURNO DE LA MAQUINA", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-        MAQUINA()
+        CPU()
     End Sub
-    Sub MAQUINA()
-
+    Sub CPU()
+        Do While dado <> 1
+            txtDado.Text = dado
+            Parcial += dado
+            txtPuntajeParcial.Text = Parcial
+        Loop
     End Sub
 End Class
