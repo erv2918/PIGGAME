@@ -2,8 +2,9 @@
     Dim Parcial As Integer = 0
     Dim Jugador As Integer = 0
     Dim Maquina As Integer = 0
-    Dim dado As Integer = Random()
+    Dim dado As Integer = 0
     Private Sub btnTirar_Click(sender As Object, e As EventArgs) Handles btnTirar.Click
+        dado = Random()
         txtDado.Text = dado
         Parcial += dado
         txtPuntajeParcial.Text = Parcial
@@ -17,23 +18,31 @@
             CPU()
         End If
     End Sub
-
-    Function Random()
-        Dim valor As Integer = Int((6 * Rnd()) + 1)
-        Return valor
-    End Function
-
     Private Sub btnParar_Click(sender As Object, e As EventArgs) Handles btnParar.Click
         Jugador += Parcial
         txtJugador.Text = Jugador
         MessageBox.Show("TURNO DE LA MAQUINA", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         CPU()
     End Sub
+    Function Random()
+        Randomize()
+        Dim valor As Integer = CInt((6 * Rnd()) + 1)
+        Return valor
+    End Function
+
     Sub CPU()
-        Do While dado <> 1
+        Parcial = 0
+        txtPuntajeParcial.Text = Parcial
+        While dado <> 1
             txtDado.Text = dado
             Parcial += dado
             txtPuntajeParcial.Text = Parcial
-        Loop
+            Maquina += Parcial
+            txtMaquina.Text = Maquina
+            dado = Random()
+        End While
+
+
+
     End Sub
 End Class
