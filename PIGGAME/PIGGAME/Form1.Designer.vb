@@ -32,6 +32,8 @@ Partial Class Form1
         Me.lblDado = New System.Windows.Forms.Label()
         Me.btnTirar = New System.Windows.Forms.Button()
         Me.btnParar = New System.Windows.Forms.Button()
+        Me.lblVeces = New System.Windows.Forms.Label()
+        Me.txtVeces = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'lblJugador
@@ -116,11 +118,29 @@ Partial Class Form1
         Me.btnParar.Text = "PARAR"
         Me.btnParar.UseVisualStyleBackColor = True
         '
+        'lblVeces
+        '
+        Me.lblVeces.AutoSize = True
+        Me.lblVeces.Location = New System.Drawing.Point(219, 116)
+        Me.lblVeces.Name = "lblVeces"
+        Me.lblVeces.Size = New System.Drawing.Size(36, 13)
+        Me.lblVeces.TabIndex = 12
+        Me.lblVeces.Text = "veces"
+        '
+        'txtVeces
+        '
+        Me.txtVeces.Location = New System.Drawing.Point(222, 132)
+        Me.txtVeces.Name = "txtVeces"
+        Me.txtVeces.Size = New System.Drawing.Size(28, 20)
+        Me.txtVeces.TabIndex = 13
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.Controls.Add(Me.txtVeces)
+        Me.Controls.Add(Me.lblVeces)
         Me.Controls.Add(Me.btnParar)
         Me.Controls.Add(Me.btnTirar)
         Me.Controls.Add(Me.lblDado)
@@ -148,4 +168,6 @@ Partial Class Form1
     Friend WithEvents lblDado As Label
     Friend WithEvents btnTirar As Button
     Friend WithEvents btnParar As Button
+    Friend WithEvents lblVeces As Label
+    Friend WithEvents txtVeces As TextBox
 End Class
