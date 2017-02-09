@@ -14,8 +14,7 @@
         txtVeces.Text = veces
         If dado = 1 Then
             Parcial = 0
-            Jugador = 0
-            txtJugador.Text = 0
+            txtJugador.Text = Jugador
             txtPuntajeParcial.Text = 0
             txtDado.Text = ""
             MessageBox.Show("BABOSO , TURNO DE LA MAQUINA", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
@@ -39,14 +38,15 @@
         txtPuntajeParcial.Text = Parcial
         dado = Random()
         txtDado.Text = dado
-        If dado = 1 Then
-            MessageBox.Show("TURNO DEL JUGADOR , MAQUINA SACO 1", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-            Parcial = 0
-            txtPuntajeParcial.Text = Parcial
-            Maquina = 0
-            txtMaquina.Text = Maquina
-        End If
         While veces >= cont
+            If dado = 1 Then
+                MessageBox.Show("TURNO DEL JUGADOR , MAQUINA SACO 1", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                Parcial = 0
+                txtPuntajeParcial.Text = Parcial
+                txtMaquina.Text = Maquina
+                dado = 0
+                cont = veces + 1
+            End If
             Parcial += dado
             txtPuntajeParcial.Text = Parcial
             Maquina += Parcial
@@ -56,9 +56,11 @@
         End While
         MessageBox.Show("TURNO DEL JUGADOR", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         veces = 0
+        cont = 0
 
 
 
     End Sub
 
 End Class
+
