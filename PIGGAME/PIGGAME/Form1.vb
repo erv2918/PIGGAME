@@ -17,13 +17,17 @@
             txtJugador.Text = Jugador
             txtPuntajeParcial.Text = 0
             txtDado.Text = ""
-            MessageBox.Show("BABOSO , TURNO DE LA MAQUINA", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            MessageBox.Show("SACO 1 , TURNO DE LA MAQUINA", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
             CPU()
         End If
     End Sub
     Private Sub btnParar_Click(sender As Object, e As EventArgs) Handles btnParar.Click
         Jugador += Parcial
         txtJugador.Text = Jugador
+        If Jugador >= 100 Then
+            MessageBox.Show("FELICIDADES GANASTE !!", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            End
+        End If
         MessageBox.Show("TURNO DE LA MAQUINA", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         CPU()
     End Sub
@@ -39,28 +43,30 @@
         dado = Random()
         txtDado.Text = dado
         While veces >= cont
-            If dado = 1 Then
-                MessageBox.Show("TURNO DEL JUGADOR , MAQUINA SACO 1", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-                Parcial = 0
-                txtPuntajeParcial.Text = Parcial
-                txtMaquina.Text = Maquina
-                dado = 0
-                cont = veces + 1
-            End If
             Parcial += dado
             txtPuntajeParcial.Text = Parcial
             Maquina += Parcial
             txtMaquina.Text = Maquina
+            If dado = 1 Then
+                MessageBox.Show("TURNO DEL JUGADOR , MAQUINA SACO 1", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                Maquina -= Parcial
+                txtPuntajeParcial.Text = Parcial
+                txtMaquina.Text = Maquina
+                dado = 0
+                txtDado.Text = dado
+                cont = veces + 6
+            End If
+
+            If Maquina >= 100 Then
+                MessageBox.Show(" JUGADOR PERDIO !!", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                End
+            End If
             dado = Random()
             cont += 1
         End While
         MessageBox.Show("TURNO DEL JUGADOR", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         veces = 0
         cont = 0
-
-
-
     End Sub
-
 End Class
 
