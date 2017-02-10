@@ -54,7 +54,7 @@
                 txtMaquina.Text = Maquina
                 dado = 0
                 txtDado.Text = dado
-                cont = veces + 6
+                Exit While
             End If
 
             If Maquina >= 100 Then
@@ -62,11 +62,10 @@
                 End
             End If
             dado = Random()
-            cont += 1
+            cont = Random()
         End While
         MessageBox.Show("TURNO DEL JUGADOR", "My Application", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         veces = 0
-        cont = 0
     End Sub
 End Class
 
